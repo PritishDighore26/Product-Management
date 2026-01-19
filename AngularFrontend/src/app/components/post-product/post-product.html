@@ -1,0 +1,32 @@
+<form [formGroup]="postProductForm" (ngSubmit)="postProduct()">
+
+  <h2>Post Product</h2>
+
+  <!-- Product Name -->
+  <div>
+    <label>Product Name</label><br />
+    <input type="text" formControlName="name" placeholder="Enter product name" />
+
+    <div *ngIf="postProductForm.get('name')?.touched && postProductForm.get('name')?.invalid">
+      <small style="color:red;">Product name is required</small>
+    </div>
+  </div>
+
+  <br />
+
+  <!-- Product Price -->
+  <div>
+    <label>Price</label><br />
+    <input type="number" formControlName="price" placeholder="Enter price" />
+
+    <div *ngIf="postProductForm.get('price')?.touched && postProductForm.get('price')?.invalid">
+      <small style="color:red;">Price is required</small>
+    </div>
+  </div>
+  <br/>
+
+  <!-- Buttons -->
+  <button type="submit" >Submit</button>
+  <!-- <button type="button" (click)="onCancel()">Cancel</button> -->
+
+</form>
